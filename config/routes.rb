@@ -1,4 +1,10 @@
 SHPETestBank::Application.routes.draw do
+  resources :tests
+
+
+  resources :class_names
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
