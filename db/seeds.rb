@@ -22,7 +22,7 @@ classes_list=[
 
 @tests = []
 test_list.each do |name|
-    @tests.push(Test.create(name: name))
+    @tests.push(ClassTestName.create(name: name))
 end
 
 @classes = []
