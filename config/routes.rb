@@ -1,4 +1,7 @@
 SHPETestBank::Application.routes.draw do
+  resources :class_names
+
+
   resources :class_test_names
 
 

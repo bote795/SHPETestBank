@@ -15,6 +15,9 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+    when /the new class_name page/
+      new_class_name_path
+
     when /the new class_test_name page/
       new_class_test_name_path
 
