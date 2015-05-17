@@ -1,0 +1,22 @@
+%p#notice= notice
+
+%p
+  %b Semester:
+  = @test_entry.semester
+%p
+  %b Teacher:
+  = @test_entry.teacher
+
+%p
+  %b Class Name:
+  = ClassName.find(@test_entry.className_id).name
+%p
+  %b Test:
+  = ClassTestName.find(@test_entry.classTestName_id).name
+%p
+  %b link:
+  = link_to 'Exam', @test_entry.link
+
+= link_to 'Edit', edit_test_entry_path(@test_entry)
+\|
+= link_to 'Back', test_entries_path

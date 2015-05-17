@@ -1,8 +1,9 @@
 SHPETestBank::Application.routes.draw do
   resources :class_names
-
+  root :to => 'class_names#index'
 
   resources :class_test_names
+  resources :test_entries
 
 
   # The priority is based upon order of creation:

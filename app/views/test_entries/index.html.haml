@@ -1,0 +1,24 @@
+%h1 Listing test_entries
+
+%table
+  %tr
+    %th Class Name
+    %th Test
+    %th Teacher
+    %th Semester
+    %th Link
+
+  - @test_entries.each do |test_entry|
+    %tr
+      %td= ClassName.find(test_entry.className_id).name
+      %td= ClassTestName.find(test_entry.classTestName_id).name
+      %td= test_entry.teacher
+      %td= test_entry.semester
+      %td= link_to 'Exam', test_entry.link
+      %td= link_to 'Show', test_entry
+      %td= link_to 'Edit', edit_test_entry_path(test_entry)
+      %td= link_to 'Destroy', test_entry, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Class test name', new_test_entry_path
