@@ -6,7 +6,7 @@ Feature: Manage class_test_names
   Scenario: Register new class_test_name
     Given I am on the new class_test_name page
     When I fill in "Name" with "name 1"
-    And I press "Create"
+    And I press "Save"
     Then I should see "name 1"
 
   Scenario: Delete class_test_name
