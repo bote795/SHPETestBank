@@ -1,7 +1,6 @@
 SHPETestBank::Application.routes.draw do
   resources :class_names
-  root :to => 'class_names#index'
-
+  root :to => 'test_entries#index'
   resources :class_test_names
   resources :test_entries
 
