@@ -1,4 +1,6 @@
 SHPETestBank::Application.routes.draw do
+  devise_for :users
+
   resources :class_names
   root :to => 'test_entries#index'
   resources :class_test_names

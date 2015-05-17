@@ -29,3 +29,5 @@ end
 classes_list.each do |class_name|
 	@classes.push(ClassName.create(name: class_name))
 end
+user = User.create(email: 'name@admin.com', password: 'password1', password_confirmation: 'password1')
+user = User.create(email: 'name@user.com', password: 'password1', password_confirmation: 'password1')

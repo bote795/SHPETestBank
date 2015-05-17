@@ -1,4 +1,5 @@
 class TestEntriesController < ApplicationController
+  before_filter :authenticate_user!
   before_filter :set_test_entry, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
