@@ -2,7 +2,7 @@ SHPETestBank::Application.routes.draw do
   resources :member_emails
 
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "users/registrations" }
 
   resources :class_names
   root :to => 'test_entries#index'
