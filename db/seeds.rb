@@ -33,8 +33,17 @@ end
 classes_list.each do |class_name|
 	@classes.push(ClassName.create(name: class_name))
 end
-user = User.create(email: 'name@admin.com', password: 'password1', password_confirmation: 'password1')
-user = User.create(email: 'name@user.com', password: 'password1', password_confirmation: 'password1')
 email_list.each do |email|
     MemberEmail.create(email: email)
 end
+#TestEntry.create(:link )
+(0..5).each do |i| 
+  ticket = TestEntry.create(link: 'www.google.com', semester: 'Fall 2015', teacher: "Bush",
+   className_id: @classes[rand(2)].id, 
+   classTestName_id: @tests[rand(6)].id)
+end
+
+user = User.create(email: 'name@admin.com', password: 'password1', password_confirmation: 'password1')
+user = User.create(email: 'name@user.com', password: 'password1', password_confirmation: 'password1')
+
+
