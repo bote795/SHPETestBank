@@ -1,0 +1,14 @@
+%h1 Test Bank
+
+%table
+  %thead
+    %th Course
+    %th Total
+    - @ExamNames.each do |exam|
+      %th= exam.name
+  %tbody
+  - @classes.each do |key,value|
+    %tr
+      %td= key.name
+      -value.each do |k, v|
+        %td= v

@@ -7,7 +7,11 @@ SHPETestBank::Application.routes.draw do
   resources :class_names
   root :to => 'test_entries#index'
   resources :class_test_names
-  resources :test_entries
+  resources :test_entries do
+    collection do
+      get 'totals'
+    end
+  end
 
 
   # The priority is based upon order of creation:

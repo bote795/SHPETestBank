@@ -9,6 +9,23 @@ class TestEntriesController < ApplicationController
     respond_with(@test_entries)
   end
 
+  def totals
+    @classes = Hash.new
+    #go through each class
+    ClassName.all.each do |classn|
+      classTests=TestEntry.at_class(classn.id)
+      temp=Hash.new
+      temp["total"]=classTests.count
+      #check how many of each testName there is for that class
+      ClassTestName.all.each do |test|
+        temp[test]= classTests.at_test(test.id).count
+      end
+      @classes[classn]=temp
+    end
+    @ExamNames= ClassTestName.all
+    respond_with(@ExamNames, @ExamNames)
+  end
+
   def show
     respond_with(@test_entry)
   end
