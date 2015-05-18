@@ -1,4 +1,7 @@
 SHPETestBank::Application.routes.draw do
+  resources :member_emails
+
+
   devise_for :users
 
   resources :class_names

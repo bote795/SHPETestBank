@@ -1,0 +1,2 @@
+module MemberEmailsHelper
+end

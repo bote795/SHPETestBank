@@ -15,6 +15,9 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+    when /the new member_email page/
+      new_member_email_path
+
     when /the new class_name page/
       new_class_name_path
 
