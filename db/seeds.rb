@@ -19,7 +19,11 @@ classes_list=[
 	"CSCE 431",
 	"CSCE 444"
 ]
-
+email_list=[
+	"shpe@jason.com",
+	"erick@gmail.com",
+	"jason@yahoo.com"
+]
 @tests = []
 test_list.each do |name|
     @tests.push(ClassTestName.create(name: name))
@@ -31,4 +35,6 @@ classes_list.each do |class_name|
 end
 user = User.create(email: 'name@admin.com', password: 'password1', password_confirmation: 'password1')
 user = User.create(email: 'name@user.com', password: 'password1', password_confirmation: 'password1')
-email = MemberEmail.create(email: "shpe@jason.com")
+email_list.each do |email|
+    MemberEmail.create(email: email)
+end
