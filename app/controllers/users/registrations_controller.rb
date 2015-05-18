@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       else
         flash[:alert] = "Error. Try again."
         clean_up_passwords resource
-        redirect_to root_path
+        redirect_to new_user_registration_path
       end  
    end
 
