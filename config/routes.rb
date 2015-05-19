@@ -2,8 +2,12 @@ SHPETestBank::Application.routes.draw do
   resources :member_emails
 
 
-  devise_for :users, controllers: { registrations: "users/registrations" }
-
+  devise_for :users, controllers: { registrations: "users/registrations" } , :path_prefix => 'SHPE'
+  resources :users, :controller => "users", :only => [:index, :destroy] do
+    collection do
+      get 'destroy_all'
+    end
+  end
   resources :class_names
   root :to => 'test_entries#totals'
   resources :class_test_names
