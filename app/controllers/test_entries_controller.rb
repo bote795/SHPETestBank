@@ -1,7 +1,7 @@
 class TestEntriesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :set_test_entry, only: [:show, :edit, :update, :destroy]
-
+  before_filter :privileges, only: [:show, :edit, :update, :destroy, :index, :create, :new]
   respond_to :html
 
   def index

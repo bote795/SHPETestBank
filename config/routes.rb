@@ -3,7 +3,7 @@ SHPETestBank::Application.routes.draw do
 
 
   devise_for :users, controllers: { registrations: "users/registrations" } , :path_prefix => 'SHPE'
-  resources :users, :controller => "users", :only => [:index, :destroy] do
+  resources :users, :controller => "users", :only => [:index, :destroy, :edit, :update] do
     collection do
       get 'destroy_all'
     end

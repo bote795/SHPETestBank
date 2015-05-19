@@ -43,7 +43,7 @@ end
    classTestName_id: @tests[rand(6)].id)
 end
 
-user = User.create(email: 'name@admin.com', password: 'password1', password_confirmation: 'password1')
+user = User.create(email: 'name@admin.com', password: 'password1', password_confirmation: 'password1', admin: true)
 user = User.create(email: 'name@user.com', password: 'password1', password_confirmation: 'password1')
 
 

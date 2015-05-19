@@ -1,7 +1,7 @@
 class MemberEmailsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :set_member_email, only: [:show, :edit, :update, :destroy]
-
+  before_filter :privileges
   respond_to :html
 
   def index
