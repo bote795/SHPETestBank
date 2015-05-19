@@ -26,6 +26,12 @@ class TestEntriesController < ApplicationController
     respond_with(@ExamNames, @ExamNames)
   end
 
+  def detail
+    @class_name=ClassName.find(params[:id])
+    @tests=TestEntry.at_class(params[:id])
+    respond_with(@class_name, @tests)
+  end
+
   def show
     respond_with(@test_entry)
   end

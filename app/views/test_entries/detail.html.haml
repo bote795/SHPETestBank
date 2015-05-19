@@ -1,0 +1,17 @@
+%h1 specific #{@class_name.name}
+
+%table
+  %thead
+    %th Class Name
+    %th Test
+    %th Teacher
+    %th Semester
+    %th Link
+  %tbody
+  - @tests.each do |test_entry|
+    %tr
+      %td= ClassName.find(test_entry.className_id).name
+      %td= ClassTestName.find(test_entry.classTestName_id).name
+      %td= test_entry.teacher
+      %td= test_entry.semester
+      %td= link_to 'Exam', test_entry.link

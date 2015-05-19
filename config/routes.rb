@@ -5,11 +5,12 @@ SHPETestBank::Application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations" }
 
   resources :class_names
-  root :to => 'test_entries#index'
+  root :to => 'test_entries#totals'
   resources :class_test_names
   resources :test_entries do
     collection do
       get 'totals'
+      get 'detail', to: :detail
     end
   end
 

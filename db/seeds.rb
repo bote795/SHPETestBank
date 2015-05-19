@@ -38,7 +38,7 @@ email_list.each do |email|
 end
 #TestEntry.create(:link )
 (0..5).each do |i| 
-  ticket = TestEntry.create(link: 'www.google.com', semester: 'Fall 2015', teacher: "Bush",
+  ticket = TestEntry.create(link: 'http://www.google.com', semester: 'Fall 2015', teacher: "Bush",
    className_id: @classes[rand(2)].id, 
    classTestName_id: @tests[rand(6)].id)
 end
