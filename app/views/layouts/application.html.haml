@@ -13,10 +13,10 @@
   %body
     %div.container
       - if flash[:notice]
-        %div.notice
+        %div.alert.alert-dismissible.alert-success
           =flash[:notice]
       - if flash[:alert]
-        %div.alert
+        %div.alert.alert-dismissible.alert-danger
           =flash[:alert]
       =link_to "Sign Out", destroy_user_session_path, :method => :delete 
       .header
