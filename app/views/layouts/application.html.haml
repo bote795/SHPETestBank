@@ -14,10 +14,10 @@
     %div
       - if flash[:notice]
         #alert
-          %a.alert{:href => "#alert"}= flash[:notice]
+          %a.alert.alert-sucess{:href => "#alert"}= flash[:notice]
       - if flash[:alert]
         #alert
-          %a.alert{:href => "#alert"}= flash[:alert] 
+          %a.alert.alert-danger{:href => "#alert"}= flash[:alert] 
       .header
         %h1= content_for?(:title) ? yield(:title) : ""
         %p= content_for?(:extra) ? yield(:extra) : ""      

@@ -96,8 +96,13 @@ h1 {
 #alert:target {
     display: none;
 }
+.alert-danger{
+  background-color: #c4453c;
+}
+.alert-sucess{
+  background-color: #00CC00;
+}
 .alert {
-    background-color: #c4453c;
     background-image: -webkit-linear-gradient(135deg, transparent,
                       transparent 25%, hsla(0,0%,0%,.05) 25%,
                       hsla(0,0%,0%,.05) 50%, transparent 50%,
