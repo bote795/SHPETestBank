@@ -1,5 +1,9 @@
 SHPETestBank::Application.routes.draw do
-  resources :member_emails
+  resources :member_emails do
+    collection do
+      get 'destroy_all'
+    end
+  end
 
 
   devise_for :users, controllers: { registrations: "users/registrations" } , :path_prefix => 'SHPE'

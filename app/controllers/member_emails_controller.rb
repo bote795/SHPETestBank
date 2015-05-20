@@ -37,6 +37,11 @@ class MemberEmailsController < ApplicationController
     respond_with(@member_email)
   end
 
+  def destroy_all
+    MemberEmail.delete_all
+    redirect_to member_emails_path
+  end
+
   private
     def set_member_email
       @member_email = MemberEmail.find(params[:id])
