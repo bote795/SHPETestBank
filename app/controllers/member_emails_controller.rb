@@ -20,7 +20,6 @@ class MemberEmailsController < ApplicationController
 
   def edit
   end
-
   def create
     @member_email = MemberEmail.new(params[:member_email])
     @member_email.save
@@ -40,6 +39,17 @@ class MemberEmailsController < ApplicationController
   def destroy_all
     MemberEmail.delete_all
     redirect_to member_emails_path
+  end
+  
+  def batch_insert
+  end
+
+  def insert_all
+      array_of_emails=params[:email][:emails].split(',')
+      array_of_emails.each do |email|
+        MemberEmail.create(email: email)
+      end
+      redirect_to member_emails_path
   end
 
   private
