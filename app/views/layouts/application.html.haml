@@ -11,7 +11,7 @@
     = csrf_meta_tags
 
   %body
-    %div
+    %div{:class => (content_for?(:div) ? "" : "container")} 
       - if flash[:notice]
         #alert
           %a.alert.alert-sucess{:href => "#alert"}= flash[:notice]
@@ -20,7 +20,7 @@
           %a.alert.alert-danger{:href => "#alert"}= flash[:alert] 
       .header
         %h1= content_for?(:title) ? yield(:title) : ""
-        %p= content_for?(:extra) ? yield(:extra) : ""      
+        %p= content_for?(:extra) ? yield(:extra) : ""     
       .content
         =yield
       =link_to "Sign Out", destroy_user_session_path, :method => :delete
