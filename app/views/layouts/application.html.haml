@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title SHPETestBank
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body     
+    - if flash[:notice]
+      #alert
+        %a.alert{:href => "#alert"}= flash[:notice]
+    - if flash[:alert]
+      #alert
+        %a.alert{:href => "#alert"}= flash[:alert]
+    = yield

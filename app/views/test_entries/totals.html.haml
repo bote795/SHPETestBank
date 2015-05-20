@@ -12,3 +12,6 @@
       %td= link_to key.name, detail_test_entries_path(:id => key.id)
       -value.each do |k, v|
         %td= v
+
+= link_to "Sign Out", destroy_user_session_path, :method => :delete      
+        
