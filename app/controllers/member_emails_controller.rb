@@ -47,7 +47,9 @@ class MemberEmailsController < ApplicationController
   def insert_all
       array_of_emails=params[:email][:emails].split(',')
       array_of_emails.each do |email|
-        MemberEmail.create(email: email)
+        if not email.blank?
+          MemberEmail.create(email: email)
+        end
       end
       redirect_to member_emails_path
   end
