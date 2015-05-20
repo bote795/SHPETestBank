@@ -1,0 +1,18 @@
+=content_for(:title, "Edit User @user.email")
+
+= form_tag user_path(@user), :method => :put do
+ = email_field :user, :email
+ = label :user, :password,  'User Password' 
+ %em leave blank if you don't want to change it
+ %br
+ = password_field :user, :password, autofocus: true 
+ = label :user, :password_confirmation, 'Password Confirmation'
+ = password_field :user, :password_confirmation
+ %br
+ = check_box :user, :admin do
+  = label :user, :admin, 'Admin'
+ Admin
+ %br
+ %br
+ %br
+ = submit_tag 'Save Changes'

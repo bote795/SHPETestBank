@@ -1,6 +1,8 @@
-%h1 Listing member_emails
+=content_for(:title, "SHPE Paid Members Emails")
 
-%table
+= link_to 'Destroy All', destroy_all_member_emails_path, :class =>"btn btn-danger"
+= link_to 'Batch Insert', batch_insert_member_emails_path, :class =>"btn btn-info"
+%table.table.table-striped.table-hover
   %tr
     %th Email
     %th
@@ -10,10 +12,10 @@
   - @member_emails.each do |member_email|
     %tr
       %td= member_email.email
-      %td= link_to 'Show', member_email
-      %td= link_to 'Edit', edit_member_email_path(member_email)
-      %td= link_to 'Destroy', member_email, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', member_email, :class => "btn btn-link"
+      %td= link_to 'Edit', edit_member_email_path(member_email), :class => "btn btn-link"
+      %td= link_to 'Destroy', member_email, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-link"
 
 %br
 
-= link_to 'New Member email', new_member_email_path
+= link_to 'New Member email', new_member_email_path, :class => "btn btn-default"

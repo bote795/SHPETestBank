@@ -1,12 +1,14 @@
-%h1 Listing test_entries
-
-%table
+=content_for(:title, "Tests")
+%table.table.table-striped.table-hover
   %tr
     %th Class Name
     %th Test
     %th Teacher
     %th Semester
     %th Link
+    %th
+    %th
+    %th
 
   - @test_entries.each do |test_entry|
     %tr
@@ -14,11 +16,11 @@
       %td= ClassTestName.find(test_entry.classTestName_id).name
       %td= test_entry.teacher
       %td= test_entry.semester
-      %td= link_to 'Exam', test_entry.link
-      %td= link_to 'Show', test_entry
-      %td= link_to 'Edit', edit_test_entry_path(test_entry)
-      %td= link_to 'Destroy', test_entry, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Exam', test_entry.link, :class => "btn btn-link"
+      %td= link_to 'Show', test_entry, :class => "btn btn-link"
+      %td= link_to 'Edit', edit_test_entry_path(test_entry), :class => "btn btn-link"
+      %td= link_to 'Destroy', test_entry, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-link"
 
 %br
 
-= link_to 'New Class test name', new_test_entry_path
+= link_to 'New Class test name', new_test_entry_path, :class => "btn btn-default"
