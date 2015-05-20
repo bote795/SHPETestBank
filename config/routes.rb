@@ -1,9 +1,19 @@
 SHPETestBank::Application.routes.draw do
-  resources :member_emails
+  resources :member_emails do
+    collection do
+      get 'destroy_all'
+      get 'batch_insert'
+      post 'insert_all'
+    end
+  end
 
 
-  devise_for :users, controllers: { registrations: "users/registrations" }
-
+  devise_for :users, controllers: { registrations: "users/registrations" } , :path_prefix => 'SHPE'
+  resources :users, :controller => "users", :only => [:index, :destroy, :edit, :update] do
+    collection do
+      get 'destroy_all'
+    end
+  end
   resources :class_names
   root :to => 'test_entries#totals'
   resources :class_test_names
