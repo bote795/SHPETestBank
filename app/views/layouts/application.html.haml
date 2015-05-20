@@ -1,0 +1,26 @@
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %meta{:content => "MHMR-Troubleshooter System for ticket submission", :name => "description"}
+    = favicon_link_tag 'favicon.ico'
+
+    %title= yield(:title)
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+    %div.container
+      - if flash[:notice]
+        %div.notice
+          =flash[:notice]
+      - if flash[:alert]
+        %div.alert
+          =flash[:alert]
+      =link_to "Sign Out", destroy_user_session_path, :method => :delete 
+      .header
+        %h1= content_for?(:title) ? yield(:title) : "default title"
+        %p= content_for?(:extra) ? yield(:extra) : ""      
+      .content
+        =yield
