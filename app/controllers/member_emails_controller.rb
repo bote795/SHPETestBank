@@ -47,7 +47,7 @@ class MemberEmailsController < ApplicationController
   def insert_all
       array_of_emails=params[:email][:emails].split(',')
       array_of_emails.each do |email|
-        if not email.blank?
+        if not email.blank? and is_a_valid_email?(email)
           MemberEmail.create(email: email)
         end
       end
@@ -57,5 +57,8 @@ class MemberEmailsController < ApplicationController
   private
     def set_member_email
       @member_email = MemberEmail.find(params[:id])
+    end
+    def is_a_valid_email?(email)
+      (email =~ /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i) == 0
     end
 end
