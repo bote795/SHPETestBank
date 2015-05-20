@@ -2,6 +2,8 @@ SHPETestBank::Application.routes.draw do
   resources :member_emails do
     collection do
       get 'destroy_all'
+      get 'batch_insert'
+      post 'insert_all'
     end
   end
 

@@ -20,7 +20,6 @@ class MemberEmailsController < ApplicationController
 
   def edit
   end
-
   def create
     @member_email = MemberEmail.new(params[:member_email])
     @member_email.save
@@ -41,9 +40,25 @@ class MemberEmailsController < ApplicationController
     MemberEmail.delete_all
     redirect_to member_emails_path
   end
+  
+  def batch_insert
+  end
+
+  def insert_all
+      array_of_emails=params[:email][:emails].split(',')
+      array_of_emails.each do |email|
+        if not email.blank? and is_a_valid_email?(email)
+          MemberEmail.create(email: email)
+        end
+      end
+      redirect_to member_emails_path
+  end
 
   private
     def set_member_email
       @member_email = MemberEmail.find(params[:id])
+    end
+    def is_a_valid_email?(email)
+      (email =~ /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i) == 0
     end
 end
