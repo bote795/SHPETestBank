@@ -12,8 +12,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     if is_member?(resource.email)
         super
-      else
-        flash[:alert] = "Error. Try again."
+    else
+        flash[:alert] = "You are not a paid member. Talk to TAMU SHPE Director of Academic Development about the Test Bank."
         clean_up_passwords resource
         redirect_to new_user_registration_path
       end  
