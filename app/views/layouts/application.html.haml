@@ -13,14 +13,14 @@
   %body
     %div.container
       - if flash[:notice]
-        %div.alert.alert-dismissible.alert-success
-          =flash[:notice]
+        #alert
+          %a.alert{:href => "#alert"}= flash[:notice]
       - if flash[:alert]
-        %div.alert.alert-dismissible.alert-danger
-          =flash[:alert]
+        #alert
+          %a.alert{:href => "#alert"}= flash[:alert]
       =link_to "Sign Out", destroy_user_session_path, :method => :delete 
       .header
-        %h1= content_for?(:title) ? yield(:title) : "default title"
+        %h1= content_for?(:title) ? yield(:title) : ""
         %p= content_for?(:extra) ? yield(:extra) : ""      
       .content
         =yield
