@@ -4,7 +4,6 @@ gem 'rails', '3.2.21'
 ruby '2.1.5'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem "twitter-bootstrap-rails"
 gem 'pg'
 gem "haml-rails", "~> 0.4.0"
 gem 'haml'
@@ -22,6 +21,7 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem "twitter-bootstrap-rails"
 end
 
 gem 'jquery-rails'
