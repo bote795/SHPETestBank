@@ -11,7 +11,7 @@
     = csrf_meta_tags
 
   %body
-    %div.container
+    %div
       - if flash[:notice]
         #alert
           %a.alert{:href => "#alert"}= flash[:notice]
