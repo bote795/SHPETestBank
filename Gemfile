@@ -4,7 +4,6 @@ gem 'rails', '3.2.21'
 ruby '2.1.5'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem "twitter-bootstrap-rails"
 gem 'pg'
 gem "haml-rails", "~> 0.4.0"
 gem 'haml'
@@ -17,7 +16,8 @@ gem 'custom_error_message'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
+  gem 'execjs', '~> 2.5.2'
+  gem 'therubyracer'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 

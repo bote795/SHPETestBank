@@ -1,6 +1,6 @@
-%h1 Listing class_names
+=content_for(:title, "Classes")
 
-%table
+%table.table.table-striped.table-hover
   %tr
     %th Name
     %th
@@ -10,10 +10,10 @@
   - @class_names.each do |class_name|
     %tr
       %td= class_name.name
-      %td= link_to 'Show', class_name
-      %td= link_to 'Edit', edit_class_name_path(class_name)
-      %td= link_to 'Destroy', class_name, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', class_name, :class => "btn btn-link"
+      %td= link_to 'Edit', edit_class_name_path(class_name), :class => "btn btn-link"
+      %td= link_to 'Destroy', class_name, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-link"
 
 %br
 
-= link_to 'New Class name', new_class_name_path
+= link_to 'New Class name', new_class_name_path, :class => "btn btn-default"

@@ -1,4 +1,5 @@
-%h1 batchInsert
+=content_for(:title, "Batch Insert")
+
 = form_tag insert_all_member_emails_path, :method => :post do
 	= label :email, :emails
 	= text_area :email, :emails
