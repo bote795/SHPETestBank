@@ -1,13 +1,13 @@
 .container-full
   .row
-    .col-lg-4.text-center.v-center
+    .text-center.v-center
       %h1{:class => "title"} SHPE Test Bank
       %p.lead Be prepared for your test
       %br/
     
 
  
-      = form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'col-lg-12 login form form-horizontal'}) do |f|
+      = form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'login form form-horizontal'}) do |f|
         .form-group
           = f.label :email, :class => "col-sm-2 control-label"
           = f.email_field :email, autofocus: true
