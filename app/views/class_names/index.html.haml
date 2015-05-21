@@ -1,5 +1,7 @@
 =content_for(:title, "Classes")
-
+= link_to 'New Class name', new_class_name_path, :class => "btn btn-default"
+%br
+%br
 %table.table.table-striped.table-hover
   %tr
     %th Name
@@ -13,7 +15,3 @@
       %td= link_to 'Show', class_name, :class => "btn btn-link"
       %td= link_to 'Edit', edit_class_name_path(class_name), :class => "btn btn-link"
       %td= link_to 'Destroy', class_name, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-link"
-
-%br
-
-= link_to 'New Class name', new_class_name_path, :class => "btn btn-default"
