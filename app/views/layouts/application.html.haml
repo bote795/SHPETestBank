@@ -11,7 +11,7 @@
     = csrf_meta_tags
 
   %body
-    %div{:class => (content_for?(:div) ? "" : "container")} 
+    %div
       - if  user_signed_in?
         = render 'layouts/navbar'
       - if flash[:notice]
