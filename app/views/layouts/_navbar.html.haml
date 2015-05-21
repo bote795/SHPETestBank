@@ -10,17 +10,17 @@
   / Collect the nav links, forms, and other content for toggling
   .navbar-collapse.collapse
     %ul.nav.navbar-nav
-    - if current_user.admin?
-      %li{:class => (current_page?(users_path)? "active" : "")} 
-        =link_to "Users", users_path
-      %li{:class => (current_page?(member_emails_path)? "active" : "")} 
-        =link_to "Member Emails", member_emails_path      
-      %li{:class => (current_page?(class_names_path)? "active" : "")} 
-        =link_to "Classes", class_names_path      
-      %li{:class => (current_page?(class_test_names_path)? "active" : "")} 
-        =link_to "Test Categories", class_test_names_path      
-      %li{:class => (current_page?(test_entries_path)? "active" : "")} 
-        =link_to "Test Entry", test_entries_path
+      - if current_user.admin?
+        %li{:class => (current_page?(users_path)? "active" : "")} 
+          =link_to "Users", users_path
+        %li{:class => (current_page?(member_emails_path)? "active" : "")} 
+          =link_to "Member Emails", member_emails_path      
+        %li{:class => (current_page?(class_names_path)? "active" : "")} 
+          =link_to "Classes", class_names_path      
+        %li{:class => (current_page?(class_test_names_path)? "active" : "")} 
+          =link_to "Test Categories", class_test_names_path      
+        %li{:class => (current_page?(test_entries_path)? "active" : "")} 
+          =link_to "Test Entry", test_entries_path
     %ul.nav.navbar-nav.navbar-right
       %li
         =link_to "Sign Out", destroy_user_session_path, :method => :delete
