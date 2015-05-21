@@ -1,16 +1,27 @@
 =content_for(:title, "#{@class_name.name}")
-%table.table.table-striped.table-hover
-  %thead
-    %th Class Name
-    %th Test
-    %th Teacher
-    %th Semester
-    %th Link
-  %tbody
-  - @tests.each do |test_entry|
-    %tr
-      %td= ClassName.find(test_entry.className_id).name
-      %td= ClassTestName.find(test_entry.classTestName_id).name
-      %td= test_entry.teacher
-      %td= test_entry.semester
-      %td= link_to 'Exam', test_entry.link, :class => "btn btn-link"
+#TestBank
+  %input.search{:placeholder => "Search"}/
+  %button.sort.btn.btn-default{"data-sort" => "test"}
+    Sort by Test
+  %table.table.table-striped.table-hover
+    %thead
+      %th Class Name
+      %th.sort{"data-sort" => "test"} Test
+      %th.sort{"data-sort" => "teacher"} Teacher
+      %th.sort{"data-sort" => "semester"} Semester
+      %th Link
+    %tbody.list
+      - @tests.each do |test_entry|
+        %tr
+          %td= ClassName.find(test_entry.className_id).name
+          %td.test= ClassTestName.find(test_entry.classTestName_id).name
+          %td.teacher= test_entry.teacher
+          %td.semester= test_entry.semester
+          %td= link_to 'Exam', test_entry.link, :class => "btn btn-link"
+:javascript
+  $(document).ready( function() {
+    var options = {
+      valueNames: [ 'test','teacher','semester']
+    };
+    var hackerList = new List('TestBank', options);
+  } );
