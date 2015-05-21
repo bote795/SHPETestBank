@@ -1,20 +1,31 @@
 =content_for(:title, "SHPE Paid Members Emails")
 = link_to 'Destroy All', destroy_all_member_emails_path, :class =>"btn btn-danger", :data => { :confirm => 'Are you sure?' }
 = link_to 'Batch Insert', batch_insert_member_emails_path, :class =>"btn btn-info"
-%table.table.table-striped.table-hover
-  %tr
-    %th Email
-    %th
-    %th
-    %th
-
-  - @member_emails.each do |member_email|
-    %tr
-      %td= member_email.email
-      %td= link_to 'Show', member_email, :class => "btn btn-link"
-      %td= link_to 'Edit', edit_member_email_path(member_email), :class => "btn btn-link"
-      %td= link_to 'Destroy', member_email, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-link"
+#Members
+  %input.search{:placeholder => "Search"}/
+  %button.sort.btn.btn-default{"data-sort" => "email"}
+    Sort by Member Email
+  %table.table.table-striped.table-hover
+    %thead
+      %th.sort{"data-sort" => "email"} Email
+      %th
+      %th
+      %th
+    %tbody.list
+      - @member_emails.each do |member_email|
+        %tr
+          %td.email= member_email.email
+          %td= link_to 'Show', member_email, :class => "btn btn-link"
+          %td= link_to 'Edit', edit_member_email_path(member_email), :class => "btn btn-link"
+          %td= link_to 'Destroy', member_email, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-link"
 
 %br
 
 = link_to 'New Member email', new_member_email_path, :class => "btn btn-default"
+:javascript
+  $(document).ready( function() {
+    var options = {
+      valueNames: [ 'email']
+    };
+    var hackerList = new List('Members', options);
+  } );
