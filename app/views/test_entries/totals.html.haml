@@ -1,14 +1,19 @@
 =content_for(:title, "Test Bank")
+#TestBank
+  %input.search{:placeholder => "Search"}/
+  %button.sort{"data-sort" => "course"}
+    Sort by courses
 
-%table.table.table-striped.table-hover
-  %thead
-    %th Course
-    %th Total
-    - @ExamNames.each do |exam|
-      %th= exam.name
-  %tbody
-  - @classes.each do |key,value|
-    %tr
-      %td= link_to key.name, detail_test_entries_path(:id => key.id), :class => "btn btn-link"
-      -value.each do |k, v|
-        %td= v        
+  %table.table.table-striped.table-hover
+    %thead
+      %th Course
+      %th Total
+      - @ExamNames.each do |exam|
+        %th= exam.name
+    
+    %tbody.list
+      - @classes.each do |key,value|
+        %tr
+          %td.course= link_to key.name, detail_test_entries_path(:id => key.id), :class => "btn btn-link course"
+          -value.each do |k, v|
+            %td= v        

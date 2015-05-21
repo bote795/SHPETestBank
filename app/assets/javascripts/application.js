@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
+//= require list.min
 //= require_tree .
 $(".navbar-nav li a").click(function (event) {
     // check if window is small enough so dropdown is created
@@ -21,3 +22,7 @@ $(".navbar-nav li a").click(function (event) {
       $(".navbar-collapse").collapse('hide');
     }
   });
+var options = {
+    valueNames: [ 'course']
+};
+var hackerList = new List('TestBank', options);
