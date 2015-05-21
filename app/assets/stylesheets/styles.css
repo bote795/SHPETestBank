@@ -38,7 +38,10 @@ h1 {
   background-image: url("http://edsource.org/wp-content/uploads/Test1.jpg") !important;
   background-repeat:no-repeat;
   background-size:cover;
-
+  
+}
+.container-full input {
+    color: #000000;
 }
 
 .container-full a {
@@ -66,6 +69,7 @@ h1 {
 
 #alert {
     position: relative;
+    color: #000000;
 }
 #alert:hover:after {
     background: hsla(0,0%,0%,.8);
@@ -73,7 +77,7 @@ h1 {
     color: #f6f6f6;
     content: 'Click to dismiss';
     font: bold 12px/30px sans-serif;
-    height: 30px;
+    height: 50px;
     left: 50%;
     margin-left: -60px;
     position: absolute;
@@ -133,7 +137,7 @@ h1 {
     color: #f6f6f6;
     display: block;
     font: bold 16px/40px sans-serif;
-    height: 40px;
+    height: 50px;
     position: absolute;
     text-align: center;
     text-decoration: none;
