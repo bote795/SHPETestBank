@@ -22,7 +22,3 @@ $(".navbar-nav li a").click(function (event) {
       $(".navbar-collapse").collapse('hide');
     }
   });
-var options = {
-    valueNames: [ 'course']
-};
-var hackerList = new List('TestBank', options);

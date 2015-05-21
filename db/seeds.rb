@@ -24,6 +24,11 @@ email_list=[
 	"erick@gmail.com",
 	"jason@yahoo.com"
 ]
+teacher_list=[
+	"Bush",
+	"Jack",
+	"Dude"
+]
 @tests = []
 test_list.each do |name|
     @tests.push(ClassTestName.create(name: name))
@@ -38,7 +43,7 @@ email_list.each do |email|
 end
 #TestEntry.create(:link )
 (0..5).each do |i| 
-  ticket = TestEntry.create(link: 'http://www.google.com', semester: 'Fall 2015', teacher: "Bush",
+  ticket = TestEntry.create(link: 'http://www.google.com', semester: 'Fall 2015', teacher: teacher_list[rand(3)],
    className_id: @classes[rand(2)].id, 
    classTestName_id: @tests[rand(6)].id)
 end
