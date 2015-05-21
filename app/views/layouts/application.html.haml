@@ -15,10 +15,10 @@
       = render 'layouts/navbar'
       - if flash[:notice]
         #alert
-          %a.alert.alert-sucess{:href => "#alert"}= flash[:notice]
+          %a.alert.alert-s{:href => "#alert"}= flash[:notice]
       - if flash[:alert]
         #alert
-          %a.alert.alert-danger{:href => "#alert"}= flash[:alert] 
+          %a.alert.alert-d{:href => "#alert"}= flash[:alert] 
       .header
         %h1= content_for?(:title) ? yield(:title) : ""
         %p= content_for?(:extra) ? yield(:extra) : ""     

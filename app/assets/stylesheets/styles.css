@@ -96,10 +96,10 @@ h1 {
 #alert:target {
     display: none;
 }
-.alert-danger{
+.alert-d{
   background-color: #c4453c;
 }
-.alert-sucess{
+.alert-s{
   background-color: #00CC00;
 }
 .alert {
