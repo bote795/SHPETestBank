@@ -5,15 +5,13 @@
     Sort by Test
   %table.table.table-striped.table-hover
     %thead
-      %th Class Name
       %th.sort{"data-sort" => "test"} Test
-      %th.sort{"data-sort" => "teacher"} Teacher
+      %th.sort{"data-sort" => "teacher"} Professor
       %th.sort{"data-sort" => "semester"} Semester
       %th Link
     %tbody.list
       - @tests.each do |test_entry|
         %tr
-          %td= ClassName.find(test_entry.className_id).name
           %td.test= ClassTestName.find(test_entry.classTestName_id).name
           %td.teacher= test_entry.teacher
           %td.semester= test_entry.semester
