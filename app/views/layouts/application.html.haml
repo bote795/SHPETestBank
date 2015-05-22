@@ -13,16 +13,18 @@
 
   %body
     %div
+
       - if  user_signed_in?
         = render 'layouts/navbar'
-      - if flash[:notice]
-        #alert
-          %a.alert.alert-s{:href => "#alert"}= flash[:notice]
-      - if flash[:alert]
-        #alert
-          %a.alert.alert-d{:href => "#alert"}= flash[:alert] 
-      .header
-        %h1= content_for?(:title) ? yield(:title) : ""
-        %p= content_for?(:extra) ? yield(:extra) : ""     
-      .content
-        =yield
+        - if flash[:notice]
+          #alert
+            %a.alert.alert-s{:href => "#alert"}= flash[:notice]
+        - if flash[:alert]
+          #alert
+            %a.alert.alert-d{:href => "#alert"}= flash[:alert] 
+        .container
+          =yield
+
+      - if !(user_signed_in?)
+        .content
+          =yield

@@ -2,30 +2,25 @@
   .row
     .text-center.v-center
       %h1{:class => "title"} SHPE Test Bank
-      %p.lead Be prepared for your test
-      %br/
-    
+      %p.lead Be ready for your test
 
- 
       = form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'login form form-horizontal'}) do |f|
         .form-group
-          = f.label :email, :class => "col-sm-2 control-label"
-          = f.email_field :email, autofocus: true
+          = f.label :email, :class => "col-sm-2 control-label", :style => "text-align: left;"
+          = f.email_field :email, autofocus: true, :class => "form-control input-lg", :placeholder => "Enter your email address", :title => "You need to be a paid member in order to log in"
         .form-group
-          = f.label :password,  :class => "col-sm-2 control-label"
-          = f.password_field :password, autocomplete: "off"
+          = f.label :password,  :class => "col-sm-2 control-label", :style => "text-align: left;"
+          = f.password_field :password, autocomplete: "off", :class => "form-control input-lg", :placeholder => "Enter your password"
         - if devise_mapping.rememberable?
           .form-group
-            .col-sm-offset-2.col-sm-10
-              %label
-                %input{:type => "checkbox"}/
-                Remember me
-        %br/
-        %br/
+            %label
+              %input{:type => "checkbox"}/
+              Remember me
+
+
         .actions
-          =f.submit 'Log in',:class => "btn btn-lg btn-primary"
+          =f.submit 'Log in',:class => "btn btn-lg btn-primary", :style => "color: white !important;"
       = render "devise/shared/links" 
-      = link_to "Sign Out", destroy_user_session_path, :method => :delete      
         
   / /row
   .row
@@ -48,7 +43,7 @@
     .col-md-4
       .panel.panel-default
         .panel-heading
-          %h3 Hello.
+          %h3 Practice Makes Perfect
         .panel-body
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
           Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
@@ -57,7 +52,7 @@
     .col-md-4
       .panel.panel-default
         .panel-heading
-          %h3 Hello.
+          %h3 Automated System
         .panel-body
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
           Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
@@ -66,20 +61,15 @@
     .col-md-4
       .panel.panel-default
         .panel-heading
-          %h3 Hello.
+          %h3 Earn points with your tests!
         .panel-body
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-          Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-          dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-          Aliquam in felis sit amet augue.
+          For every test your submit, you will get ....
   .row
     .col-lg-12
       %br/
       %br/
       %p.pull-right
-        %a{:href => "http://www.bootply.com"} Template from Bootply
-        ©Copyright 2013 ACME
-        %sup TM
-        Brand.
+        %a{:href => "https://github.com/TAMUSHPE"} Programmed by TAMU SHPE Programmers
+        ©Copyright 2015 TAMUSHPE
       %br/
       %br/
