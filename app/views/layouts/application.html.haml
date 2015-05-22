@@ -22,6 +22,9 @@
         - if flash[:alert]
           #alert
             %a.alert.alert-d{:href => "#alert"}= flash[:alert] 
+        .container
+          =yield
 
-      .content
-        =yield
+      - if !(user_signed_in?)
+        .content
+          =yield
