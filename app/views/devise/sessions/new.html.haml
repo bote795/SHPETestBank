@@ -3,7 +3,9 @@
     .text-center.v-center
       %h1{:class => "title"} SHPE Test Bank
       %p.lead Be ready for your test
-     
+      %br/
+      %br/
+
       = form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'login form form-horizontal'}) do |f|
         .form-group
           = f.label :email, :class => "col-sm-2 control-label", :style => "text-align: left;"
@@ -16,6 +18,7 @@
             %label
               %input{:type => "checkbox"}/
               Remember me
+
 
         .actions
           =f.submit 'Log in',:class => "btn btn-lg btn-primary", :style => "color: white !important;"
