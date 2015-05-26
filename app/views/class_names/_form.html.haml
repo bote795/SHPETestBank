@@ -1,13 +1,13 @@
-= form_for @class_name do |f|
+= form_for @class_name, :html =>  {class: "form-horizontal"} do |f|
   - if @class_name.errors.any?
     #error_explanation
       %h2= "#{pluralize(@class_name.errors.count, "error")} prohibited this class_name from being saved:"
       %ul
         - @class_name.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
+  .form-group       
+    .field
+      = f.label :name, class: "col-lg-2 control-label" 
+      = f.text_field :name, class: "col-lg-10 control-label"
   .actions
     = f.submit 'Save'
