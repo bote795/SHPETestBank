@@ -7,7 +7,10 @@
           %li= msg
   .form-group       
     .field
-      = f.label :name, class: "col-lg-2 control-label" 
-      = f.text_field :name, class: "col-lg-10 control-label" 
-  .actions
+      = f.label :name, class: "col-lg-2 control-label"
+      .col-lg-10 
+        = f.text_field :name, class: "form-control" 
+  .form-group
+    .col-lg-10.col-lg-offset-2
+      .actions
     = f.submit 'Save', class: "btn btn-primary"
