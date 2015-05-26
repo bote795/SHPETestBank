@@ -5,21 +5,32 @@
       %ul
         - @test_entry.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :link
-    = f.text_field :link
-  .field
-    = f.label :semester
-    = f.text_field :semester
-  .field
-    = f.label :teacher
-    = f.text_field :teacher
-  .field
-    = f.label :className_id
-    = f.collection_select(:className_id , ClassName.order('name').all, :id ,:name)
-  .field
-    = f.label :classTestName_id
-    = f.collection_select(:classTestName_id , ClassTestName.order('name').all, :id ,:name)
-  .actions
-    = f.submit 'Save'
+  .form-group
+    .field
+      = f.label :link, class: "col-lg-2 control-label"
+      .col-lg-10 
+        = f.text_field :link, class: "form-control" 
+  .form-group
+    .field
+      = f.label :semester, class: "col-lg-2 control-label"
+      .col-lg-10 
+        = f.text_field :semester, class: "form-control" 
+  .form-group
+    .field
+      = f.label :teacher, class: "col-lg-2 control-label"
+      .col-lg-10 
+        = f.text_field :teacher, class: " form-control" 
+  .form-group
+    .field
+      = f.label :className_id, class: "col-lg-2 control-label"
+      .col-lg-10 
+        = f.collection_select(:className_id , ClassName.order('name').all, :id ,:name, {}, {:class => "form-control"}) 
+  .form-group
+    .field
+      = f.label :classTestName_id, class: "col-lg-2 control-label" 
+      .col-lg-10
+        = f.collection_select(:classTestName_id , ClassTestName.order('name').all, :id ,:name, {}, {:class =>"form-control"}) 
+  .form-group
+    .col-lg-10.col-lg-offset-2
+      .actions
+        = f.submit 'Save', class: "btn btn-primary"
