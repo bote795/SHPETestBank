@@ -1,18 +1,23 @@
-=content_for(:title, "Edit User @user.email")
+=content_for(:title, "Edit User #{@user.email}")
 
-= form_tag user_path(@user), :method => :put do
- = email_field :user, :email
- = label :user, :password,  'User Password' 
- %em leave blank if you don't want to change it
- %br
- = password_field :user, :password, autofocus: true 
- = label :user, :password_confirmation, 'Password Confirmation'
- = password_field :user, :password_confirmation
- %br
- = check_box :user, :admin do
-  = label :user, :admin, 'Admin'
- Admin
- %br
- %br
- %br
- = submit_tag 'Save Changes'
+= form_tag user_path(@user), :method => :put, :html =>  {class: "form-horizontal"} do
+  .form-group
+    = label :user, :email, class: "col-lg-2 control-label"
+    .col-lg-10
+      = email_field :user, :email, class: "form-control"
+  .form-group
+    = label :user, :password,  'User Password', class: "col-lg-2 control-label"
+    .col-lg-10
+      = password_field :user, :password, autofocus: true, class: "form-control"
+      %span.help-block
+      %em leave blank if you don't want to change it
+  .form-group
+    = label :user, :password_confirmation, 'Password Confirmation', class: "col-lg-2 control-label"
+    .col-lg-10
+      = password_field :user, :password_confirmation, class: "form-control"
+  .form-group
+    =label :user, :admin, 'Admin', class: "col-lg-2 control-label" 
+    .col-lg-10
+      = check_box :user, :admin, class: "form-control" do
+        = label :user, :admin, 'Admin'
+  = submit_tag 'Save Changes'
