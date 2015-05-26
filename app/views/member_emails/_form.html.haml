@@ -1,13 +1,13 @@
-= form_for @member_email do |f|
+= form_for @member_email, :html =>  {class: "form-horizontal"} do |f|
   - if @member_email.errors.any?
     #error_explanation
       %h2= "#{pluralize(@member_email.errors.count, "error")} prohibited this member_email from being saved:"
       %ul
         - @member_email.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :email
-    = f.email_field :email
+  .form-group
+    .field
+      = f.label :email, class: "col-lg-2 control-label" 
+      = f.email_field :email, class: "col-lg-10 control-label" 
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: "btn btn-primary"
