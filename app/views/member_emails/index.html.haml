@@ -13,14 +13,12 @@
       %th.sort{"data-sort" => "email"} Email
       %th
       %th
-      %th
     %tbody.list
       - @member_emails.each do |member_email|
         %tr
           %td.email= member_email.email
-          %td= link_to 'Show', member_email, :class => "btn btn-link"
           %td= link_to 'Edit', edit_member_email_path(member_email), :class => "btn btn-link"
-          %td= link_to 'Destroy', member_email, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-link"
+          %td= link_to 'Delete', member_email, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-link"
 
 :javascript
   $(document).ready( function() {
