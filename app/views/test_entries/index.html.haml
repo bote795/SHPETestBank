@@ -1,4 +1,7 @@
 =content_for(:title, "Test Management")
+= link_to 'New Test', new_test_entry_path, :class => "btn btn-default"
+%br
+%br
 %table.table.table-striped.table-hover
   %tr
     %th Course
@@ -18,7 +21,3 @@
       %td= link_to 'Exam', test_entry.link, :class => "btn btn-link"
       %td= link_to 'Edit', edit_test_entry_path(test_entry), :class => "btn btn-link"
       %td= link_to 'Delete', test_entry, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-link"
-
-%br
-
-= link_to 'New Test', new_test_entry_path, :class => "btn btn-default"

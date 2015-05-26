@@ -1,5 +1,7 @@
 =content_for(:title, "Test Categories")
-
+= link_to 'New Test Category', new_class_test_name_path, :class => "btn btn-default"
+%br
+%br
 %table.table.table-striped.table-hover
   %tr
     %th Name
@@ -11,7 +13,3 @@
       %td= class_test_name.name
       %td= link_to 'Edit', edit_class_test_name_path(class_test_name), :class => "btn btn-link"
       %td= link_to 'Delete', class_test_name, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-link"
-
-%br
-
-= link_to 'New Test Category', new_class_test_name_path, :class => "btn btn-default"

@@ -15,7 +15,9 @@ SHPETestBank::Application.routes.draw do
     end
   end
   resources :class_names
-  root :to => 'test_entries#totals'
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
   resources :class_test_names
   resources :test_entries do
     collection do
