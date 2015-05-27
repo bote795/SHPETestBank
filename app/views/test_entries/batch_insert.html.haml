@@ -1,0 +1,16 @@
+=content_for(:title, "Batch Insert")
+%p 
+  instructions on how to export excel file:
+%br
+%p
+  to copy and paste 
+  File > Save As > drop down save as type > CSV (comma delimted)
+= form_tag insert_all_test_entries_path, :method => :post, :html =>  {class: "form-horizontal"} do
+  .form-group
+    .field
+      = label :test, :tests, class: "col-lg-2 control-label" 
+      .col-lg-10
+        = text_area :test, :tests, class: "form-control"
+        %span.help-block
+          %em format per line:  link,semester,teacher,grade,Course,Test Category  
+  = submit_tag 'Submit', class: "btn btn-primary"

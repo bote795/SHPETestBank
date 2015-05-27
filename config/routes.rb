@@ -23,6 +23,8 @@ SHPETestBank::Application.routes.draw do
     collection do
       get 'totals'
       get 'detail', to: :detail
+      get 'batch_insert'
+      post 'insert_all'
     end
   end
 

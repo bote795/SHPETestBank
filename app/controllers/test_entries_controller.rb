@@ -60,6 +60,30 @@ class TestEntriesController < ApplicationController
     respond_with(@test_entry)
   end
 
+  def batch_insert
+    #front end view
+  end
+
+  def insert_all
+      string_of_TestEntries=params[:test][:tests]
+      logger.debug string_of_TestEntries
+      logger.debug "split: "
+      array_of_TestEntries =string_of_TestEntries.split( /\r?\n/ )
+      array_of_TestEntries.each do |line| 
+        array_field_test_entry= line.split(',')
+        logger.debug "new field: "
+        logger.debug "field" + array_field_test_entry[4]
+        TestEntry.create(link: array_field_test_entry[0], semester: array_field_test_entry[1],
+                         teacher: array_field_test_entry[2],
+                         grade: array_field_test_entry[3].to_i,
+                         className_id: ClassName.at_name(array_field_test_entry[4])[0].id, 
+                         classTestName_id: ClassTestName.at_name(array_field_test_entry[5])[0].id
+                         )
+
+      end
+      redirect_to test_entries_path
+  end
+
   private
     def set_test_entry
       @test_entry = TestEntry.find(params[:id])
