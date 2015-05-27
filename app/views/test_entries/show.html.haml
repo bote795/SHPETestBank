@@ -7,6 +7,9 @@
 %p
   %b Teacher:
   = @test_entry.teacher
+%p
+  %b Grade:
+  = @test_entry.grade
 
 %p
   %b Class Name:
@@ -18,6 +21,6 @@
   %b link:
   = link_to 'Exam', @test_entry.link
 
-= link_to 'Edit', edit_test_entry_path(@test_entry)
+= link_to 'Edit', edit_test_entry_path(@test_entry), class: "btn btn-default"
 \|
-= link_to 'Back', test_entries_path
+= link_to 'Back', test_entries_path, class: "btn btn-default"

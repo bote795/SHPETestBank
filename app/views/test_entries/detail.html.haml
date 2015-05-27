@@ -8,6 +8,7 @@
       %th.sort{"data-sort" => "test"} Test
       %th.sort{"data-sort" => "teacher"} Professor
       %th.sort{"data-sort" => "semester"} Semester
+      %th.sort{"data-sort" => "grade"} Grade
       %th Link
     %tbody.list
       - @tests.each do |test_entry|
@@ -15,11 +16,12 @@
           %td.test= ClassTestName.find(test_entry.classTestName_id).name
           %td.teacher= test_entry.teacher
           %td.semester= test_entry.semester
+          %td.grade= test_entry.grade
           %td= link_to 'Exam', test_entry.link, :class => "btn btn-link"
 :javascript
   $(document).ready( function() {
     var options = {
-      valueNames: [ 'test','teacher','semester']
+      valueNames: [ 'test','teacher','semester','grade']
     };
     var hackerList = new List('TestBank', options);
   } );
