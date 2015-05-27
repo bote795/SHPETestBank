@@ -44,7 +44,7 @@ end
 #TestEntry.create(:link )
 (0..5).each do |i| 
   ticket = TestEntry.create(link: 'http://www.google.com', semester: 'Fall 2015', teacher: teacher_list[rand(3)],
-   className_id: @classes[rand(2)].id, 
+   grade: rand(100),className_id: @classes[rand(2)].id, 
    classTestName_id: @tests[rand(6)].id)
 end
 

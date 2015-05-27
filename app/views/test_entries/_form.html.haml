@@ -22,6 +22,11 @@
         = f.text_field :teacher, class: " form-control" 
   .form-group
     .field
+      = f.label :grade, class: "col-lg-2 control-label"
+      .col-lg-10 
+        = f.text_field :grade, class: " form-control" 
+  .form-group
+    .field
       = f.label :className_id, class: "col-lg-2 control-label"
       .col-lg-10 
         = f.collection_select(:className_id , ClassName.order('name').all, :id ,:name, {}, {:class => "form-control"}) 
