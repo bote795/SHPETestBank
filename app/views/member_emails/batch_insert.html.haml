@@ -1,8 +1,22 @@
 =content_for(:title, "Batch Insert")
-
+%p 
+  instructions on how to export excel file:
+%p
+  to copy and paste 
+  File > Save As > drop down save as type > CSV (comma delimted)
+  %br
+  Delete the first line with the column names
+  Example data:
+  %br
+  james@yahoo.com
+  %br
+  bob@yahoo.com
 = form_tag insert_all_member_emails_path, :method => :post, :html =>  {class: "form-horizontal"} do
   .form-group
     .field
-      = label :email, :emails, class: "col-lg-2 control-label" 
-      = text_area :email, :emails, class: "col-lg-10 control-label" 
+      = label :email, :emails, class: "col-lg-2 control-label"
+      .col-lg-10 
+        = text_area :email, :emails, class: "form-control"
+        %span.help-block
+          %em format per line:  email 
   = submit_tag 'Submit', class: "btn btn-primary"
