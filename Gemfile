@@ -11,6 +11,10 @@ gem 'haml'
 gem 'devise'
 gem 'capybara'
 gem 'custom_error_message'
+gem 'dropbox'
+gem 'json'
+gem 'oauth'
+gem 'multipart-post'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
