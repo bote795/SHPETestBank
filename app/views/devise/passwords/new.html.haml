@@ -1,10 +1,28 @@
 =content_for(:title, "Forgot your password?")
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+.container-full
+  .row
+    .text-center.v-center.log-in
+      %h1{:class => ""} Forgot your password?
+      %h3.lead 
+        Enter your 
+        %strong Email 
+        so we can send you the 
+        %strong Reset
+        instructions
+      = form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'form form-horizontal', method: :post}) do |f|
+        = devise_error_messages!
+        .form-group
+          .col-xs-12
+            .input-group.margin-bottom-sm
+              %span.input-group-addon
+                %span.glyphicon.glyphicon-envelope
+              = f.email_field :email, autofocus: true, :class => "form-control input-lg", :placeholder => "Email", :title => "Don't worry. We won't spam you. We hate spam, too."
+        
+        .actions
+          =f.submit 'Send Email',:class => "btn btn-lg btn-primary", :style => "color: white !important;"
+      %p
+        Already have an account?
+        %br/
+        = render "devise/shared/links" 
+        
+/ /container full

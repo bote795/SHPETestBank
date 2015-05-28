@@ -1,21 +1,34 @@
 .container-full
   .row
-    .text-center.v-center
+    .text-center.v-center.log-in
       %h1{:class => "title"} SHPE Test Bank
-      %p.lead Be ready for your test
-
-      = form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'login form form-horizontal'}) do |f|
+      %h3.lead 
+        Be 
+        %strong Ready 
+        for your 
+        %strong Test
+      = form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'form form-horizontal'}) do |f|
         .form-group
-          = f.label :email, :class => "col-sm-2 control-label", :style => "text-align: left;"
-          = f.email_field :email, autofocus: true, :class => "form-control input-lg", :placeholder => "Enter your email address", :title => "You need to be a paid member in order to log in"
+          .col-xs-12
+            .input-group.margin-bottom-sm
+              %span.input-group-addon
+                %span.glyphicon.glyphicon-envelope
+              = f.email_field :email, autofocus: true, :class => "form-control input-lg", :placeholder => "Email", :title => "You need to be a paid member in order to log in"
         .form-group
-          = f.label :password,  :class => "col-sm-2 control-label", :style => "text-align: left;"
-          = f.password_field :password, autocomplete: "off", :class => "form-control input-lg", :placeholder => "Enter your password"
+          .col-xs-12
+            .input-group.margin-bottom-sm
+              %span.input-group-addon
+                %span.glyphicon.glyphicon-eye-open
+              = f.password_field :password, autocomplete: "off", :class => "form-control input-lg", :placeholder => "Password"
         - if devise_mapping.rememberable?
           .form-group
             %label
               %input{:type => "checkbox"}/
               Remember me
+
+
+
+
 
 
         .actions
