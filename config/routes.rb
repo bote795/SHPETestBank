@@ -1,4 +1,10 @@
 SHPETestBank::Application.routes.draw do
+  get "dropbox/authorize"
+
+  get "dropbox/get_tests"
+
+  get "dropbox/update_database"
+
   resources :member_emails do
     collection do
       get 'destroy_all'
