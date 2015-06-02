@@ -1,4 +1,12 @@
 SHPETestBank::Application.routes.draw do
+  get "dropbox/authorize"
+
+  get "dropbox/get_tests"
+
+  get "dropbox/update_database"
+
+  #get "class_names/dropbox_update"
+
   resources :member_emails do
     collection do
       get 'destroy_all'
@@ -11,10 +19,14 @@ SHPETestBank::Application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations" } , :path_prefix => 'SHPE'
   resources :users, :controller => "users", :only => [:index, :destroy, :edit, :update] do
     collection do
-      get 'destroy_all'
+      post 'destroy_all'
     end
   end
-  resources :class_names
+  resources :class_names do
+    collection do
+      get 'dropbox_import'
+    end
+  end
   devise_scope :user do
     root to: "devise/sessions#new"
   end
