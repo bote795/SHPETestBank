@@ -40,7 +40,7 @@ class ClassNamesController < ApplicationController
     respond_with(@class_name)
   end
 
-  def dropbox_update
+  def dropbox_import
     dropbox = DropboxClient.new(ENV["dropbox_sdk_token"])
     #puts "LINKED account:", dropbox.account_info().inspect
     #file = open('working-draft.txt')
@@ -61,7 +61,7 @@ class ClassNamesController < ApplicationController
     end
     
 
-    #strip string into courses
+    #strip string into course names
     @parsed_courses = Array.new
     reversed = "/Archive/TEST BANK/Filed/".reverse.upcase
     @courses.each do |item|
@@ -69,25 +69,16 @@ class ClassNamesController < ApplicationController
       @parsed_courses.push(temp.slice(/^\w{4}/) + " "+ temp.slice(/\d{3}/))
     end
      
-
-    
-    
-
-
-    database_updated = false
     #insert courses into database
     @parsed_courses.each do |course|
-      @class_name = ClassName.new(course)
-      @class_name.save
-      if (@class_name.save)
-        flash[:notice] = "#{course}Course Added"
+      if (ClassName.create(name: course))
         database_updated = true
       end
     end
+    
+    flash[:notice] = "Database has been updated"
+    redirect_to class_names_path
 
-    if (!database_updated)
-      flash[:notice] = "Database is up to date"
-    end
   end
 
   private
