@@ -36,6 +36,10 @@
       .col-lg-10
         = f.collection_select(:classTestName_id , ClassTestName.order('name').all, :id ,:name, {}, {:class =>"form-control"}) 
   .form-group
-    .col-lg-10.col-lg-offset-2
+    .col-lg-10
       .actions
+        %br/
+        %br/
+        %br/
+        = link_to 'Cancel', test_entries_path, class: "btn btn-danger"
         = f.submit 'Save', class: "btn btn-primary"
