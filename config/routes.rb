@@ -5,6 +5,8 @@ SHPETestBank::Application.routes.draw do
 
   get "dropbox/update_database"
 
+  get "class_names/dropbox_update"
+
   resources :member_emails do
     collection do
       get 'destroy_all'
@@ -20,7 +22,9 @@ SHPETestBank::Application.routes.draw do
       get 'destroy_all'
     end
   end
-  resources :class_names
+  resources :class_names do
+    get 'dropbox_update'
+  end
   devise_scope :user do
     root to: "devise/sessions#new"
   end
