@@ -1,10 +1,12 @@
 =content_for(:title, "Test Bank")
+= stylesheet_link_tag  "//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css"
+= stylesheet_link_tag "//cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css"
 #TestBank
   %input.search{:placeholder => "Search"}/
   %button.sort.btn.btn-default{"data-sort" => "course"}
     Sort by courses
 
-  %table.table.table-striped.table-hover
+  %table.table.table-striped.table-hover#test
     %thead
       %th.sort{"data-sort" => "course"} Course
       %th Total
@@ -19,8 +21,18 @@
             %td= v        
 :javascript
   $(document).ready( function() {
-    var options = {
-      valueNames: [ 'course']
-    };
-    var hackerList = new List('TestBank', options);
+    //var options = {
+    //  valueNames: [ 'course']
+    //};
+    //var hackerList = new List('TestBank', options);
+    
+    $('#test').DataTable(
+    {
+    responsive: true
+    }
+    );
   } );
+
+= javascript_include_tag "//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"
+= javascript_include_tag "//cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.min.js"
+= javascript_include_tag "//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"
